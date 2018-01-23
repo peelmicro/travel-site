@@ -11,6 +11,14 @@ class StickyHeader {
     this.headerLinks = $(".primary-nav a");
     this.createPageSectionWaypoints();
     this.addSmoothScrolling();
+    this.lazyImages = $(".lazyload");
+    this.refreshWaypoints();
+  }
+
+  refreshWaypoints() {
+    this.lazyImages.on('load', function() {
+      Waypoint.refreshAll();
+    })
   }
 
   addSmoothScrolling() {
